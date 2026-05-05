@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GERA Elevator System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+    <section class="display simulation-display">
+        <header class="topbar">
+            <div>
+                <h1>GERA Elevator System</h1>
+                <p>Display 1: live building and elevator movement</p>
+            </div>
+            <div class="top-actions">
+                <span id="connectionBadge" class="badge">Connecting</span>
+                <label class="switch">
+                    <input id="uiTickToggle" type="checkbox">
+                    UI tick
+                </label>
+                <button id="resetBtn" class="btn danger">Reset</button>
+            </div>
+        </header>
+
+        <div class="building">
+            <div id="floorList" class="floor-list"></div>
+            <div id="shaftList" class="shaft-list"></div>
+        </div>
+    </section>
+
+    <section class="display control-display">
+        <header class="panel-header">
+            <h2>Control Panel</h2>
+            <p>Display 2: internal buttons, emergency and elevator actions</p>
+        </header>
+
+        <div class="emergency-card">
+            <h3>Emergency Request</h3>
+            <div class="emergency-grid">
+                <input id="emergencyFloor" type="number" min="1" max="16" value="1">
+                <select id="emergencyDirection">
+                    <option value="UP">UP</option>
+                    <option value="DOWN">DOWN</option>
+                </select>
+                <button id="emergencyBtn" class="btn emergency">Send Emergency</button>
+            </div>
+        </div>
+
+        <div class="system-actions">
+            <button id="rebalanceBtn" class="btn">Rebalance Idle</button>
+            <button id="morningBtn" class="btn">Morning UP</button>
+            <button id="eveningBtn" class="btn">Evening DOWN</button>
+        </div>
+
+        <div id="elevatorPanels" class="elevator-panels"></div>
+
+        <div class="log-box">
+            <h3>Event Log</h3>
+            <div id="eventLog" class="event-log"></div>
+        </div>
+    </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
